@@ -9,7 +9,7 @@ def primecheck(number):
   #assuming the number is only divisible by one and itself, it's prime
   return True
 
-
+'''
 def printfactors(factorlist):
   noDuplicatesList = []
   for factor in factorlist:
@@ -25,7 +25,7 @@ def printfactors(factorlist):
       if factor != len(noDuplicatesList)-1:
         factorsstring+=" * "
     print(factorsstring)
-
+'''
 ########MAIN############
 inputNumber=int(input("Enter a positive integer: "))
 #print(primecheck(2))
@@ -39,6 +39,9 @@ elif initialNumber==1:
 elif initialNumber<0:
   print("This is not a positive number")
 else:
+  #this code runs if a positive, non-zero integer is entered
+
+  #this gathers every prime factor
   while math.prod(primefactors) != initialNumber:
     if primecheck(factor)==True:
       while inputNumber%factor==0:
@@ -46,7 +49,21 @@ else:
           primefactors.append(factor)
           inputNumber/=factor
     factor+=1
-  #print(primefactors)
-  print("The factors are:")
-  printfactors(primefactors)
   
+
+  print("The factors are:")
+  #this section prints the prime factors
+  noDuplicatesList = []
+  for factor in primefactors:
+      if factor not in noDuplicatesList:
+          noDuplicatesList.append(factor)
+  factorsstring=""
+  if len(primefactors)==1:
+    print(str(primefactors[0])+" * 1")
+  else:
+    for factor in range(len(noDuplicatesList)):
+      factorsstring+=str(noDuplicatesList[factor])+"^"+str(primefactors.count(noDuplicatesList[factor]))
+      #i concatenate the factor and how many of that factor was in the original list
+      if factor != len(noDuplicatesList)-1:
+        factorsstring+=" * "
+    print(factorsstring)
