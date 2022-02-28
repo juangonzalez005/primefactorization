@@ -11,7 +11,8 @@ def primecheck(number):
 
 '''#main'''
 inputNumber=int(input("Enter a positive integer: "))
-primeFactors=[]
+primeFactors=[] 
+#primeFactors will hold every prime factor of a number
 factor=2 #factor is tarted at 2 
 initialNumber=inputNumber
 if initialNumber ==0: #test if an input has a special factorization
@@ -36,11 +37,11 @@ else:
   
   #this section prints the prime factors
   print("The factors are:")
-  noDuplicateFactors = [] #make a list without diplicates
+  noDuplicateFactors = [] 
+  #make a list without duplicates from primeFactors
   for factor in primeFactors:
       if factor not in noDuplicateFactors:
           noDuplicateFactors.append(factor)
-
   factorsString="" #initialize the organized output of the factors
   if len(primeFactors)==1:
     #just print out the factor * 1 if the number was already prime
@@ -48,7 +49,7 @@ else:
   else:
     for factor in range(len(noDuplicateFactors)):
       factorsString+=str(noDuplicateFactors[factor])+"^"+str(primeFactors.count(noDuplicateFactors[factor]))
-      #i concatenate the factor and how many of that factor was in the original list
+      #i concatenate the factor and how many of that factor was in the original primeFactors list
       if factor != len(noDuplicateFactors)-1:
         #put an asterick for multiplication if this isnt the last factor
         factorsString+=" * "
