@@ -1,9 +1,10 @@
 import math
-#function primecheck(number) checks if a number is prime or not
+#function primecheck(number) checks if a number is prime or not, returning true if so
 def primecheck(number):
-  for possiblefactors in range(2,math.isqrt(number)+1): 
+  for possibleFactors in range(2, math.isqrt(number)+1): 
     #loop through numbers from 2 to the sqrt of number
-    if number%possiblefactors==0: 
+    #sqrt is used because there are two factors before and after the square root, sqrt shortens run time
+    if number % possibleFactors==0: 
       #if at any point number is divisible by something other than itself, number is not prime
       return False 
   #assuming the number is only divisible by one and itself, it's prime
@@ -27,6 +28,7 @@ else:
   #this gathers every prime factor
   while math.prod(primeFactors) != initialNumber:
   #i will keep dividing the initial numbers assuming the divisor is prime
+  #divide until all factors in primeFactors equal the initialNumber when multiplied
   # each prime divisor is counted as a prime factor in the list
     if primecheck(factor)==True:
       while inputNumber%factor==0:
@@ -37,14 +39,11 @@ else:
   
   #this section prints the prime factors
   print("The factors are:")
-  noDuplicateFactors = [] 
-  #make a list without duplicates from primeFactors
-  for factor in primeFactors:
-      if factor not in noDuplicateFactors:
-          noDuplicateFactors.append(factor)
+  noDuplicateFactors = list(set(primeFactors)) #make a list without duplicates from primeFactors
+
   factorsString="" #initialize the organized output of the factors
   if len(primeFactors)==1:
-    #just print out the factor * 1 if the number was already prime
+    #just print out "factor * 1" if the number was already prime
     print(str(primeFactors[0])+" * 1")
   else:
     for factor in range(len(noDuplicateFactors)):
