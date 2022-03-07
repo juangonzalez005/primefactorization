@@ -12,8 +12,7 @@ def primecheck(number):
 
 '''#main'''
 inputNumber=int(input("Enter a positive integer: "))
-primeFactors=[] 
-#primeFactors will hold every prime factor of a number
+
 factor=2 #factor is tarted at 2 
 initialNumber=inputNumber
 if initialNumber ==0: #test if an input has a special factorization
@@ -24,22 +23,24 @@ elif initialNumber<0:
   print("This is not a positive number")
 else:
   #this code runs if a positive, non-zero integer is entered
-
+  primeFactors=[] #primeFactors will hold every prime factor of a number
+  
   #this gathers every prime factor
   while math.prod(primeFactors) != initialNumber:
-  #i will keep dividing the initial numbers assuming the divisor is prime
+  #i will keep dividing the initial numbers if the divisor is prime
   #divide until all factors in primeFactors equal the initialNumber when multiplied
-  # each prime divisor is counted as a prime factor in the list
     if primecheck(factor)==True:
       while inputNumber%factor==0:
         if inputNumber%factor==0:
           primeFactors.append(factor)
+          # each prime divisor is counted as a prime factor in the list
           inputNumber/=factor
     factor+=1
   
   #this section prints the prime factors
   print("The factors are:")
-  noDuplicateFactors = list(set(primeFactors)) #make a list without duplicates from primeFactors
+  noDuplicateFactors = list(set(primeFactors))
+  #make a list without duplicates from primefactors
 
   factorsString="" #initialize the organized output of the factors
   if len(primeFactors)==1:
@@ -47,8 +48,10 @@ else:
     print(str(primeFactors[0])+" * 1")
   else:
     for factor in range(len(noDuplicateFactors)):
-      factorsString+=str(noDuplicateFactors[factor])+"^"+str(primeFactors.count(noDuplicateFactors[factor]))
-      #i concatenate the factor and how many of that factor was in the original primeFactors list
+      factorsString+=str(noDuplicateFactors[factor])
+      factorsString+="^"
+      factorsString+=str(primeFactors.count(noDuplicateFactors[factor]))
+      #concatenate the factor + how many of that factor was in original primefactors 
       if factor != len(noDuplicateFactors)-1:
         #put an asterick for multiplication if this isnt the last factor
         factorsString+=" * "
