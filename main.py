@@ -13,7 +13,7 @@ def primecheck(number):
 '''#main'''
 inputNumber=int(input("Enter a positive integer: "))
 
-factor=2 #factor is tarted at 2 
+factor=2 #factor is started at 2 
 initialNumber=inputNumber
 if initialNumber ==0: #test if an input has a special factorization
   print("Zero does not have a prime factorization")
@@ -40,6 +40,7 @@ else:
   #this section prints the prime factors
   print("The factors are:")
   noDuplicateFactors = list(set(primeFactors))
+  noDuplicateFactors.sort()
   #make a list without duplicates from primefactors
 
   factorsString="" #initialize the organized output of the factors
@@ -53,6 +54,6 @@ else:
       factorsString+=str(primeFactors.count(noDuplicateFactors[factor]))
       #concatenate the factor + how many of that factor was in original primefactors 
       if factor != len(noDuplicateFactors)-1:
-        #put an asterick for multiplication if this isnt the last factor
+        #put an asterisk for multiplication if this isnt the last factor
         factorsString+=" * "
     print(factorsString)
