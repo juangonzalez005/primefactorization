@@ -13,7 +13,7 @@ def primecheck(number):
 '''#main'''
 inputNumber=int(input("Enter a positive integer: "))
 
-factor=2 #factor is tarted at 2 
+factor=2 #factor is started at 2 
 initialNumber=inputNumber
 if initialNumber ==0: #test if an input has a special factorization
   print("Zero does not have a prime factorization")
