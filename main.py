@@ -26,6 +26,8 @@ else:
   primeFactors=[] #primeFactors will hold every prime factor of a number
   
   #this gathers every prime factor
+  ''' UNDER CONSTRUCTION FOR A BETTER ALGORITHM
+  
   while math.prod(primeFactors) != initialNumber:
   #i will keep dividing the initial numbers if the divisor is prime
   #divide until all factors in primeFactors equal the initialNumber when multiplied
@@ -36,6 +38,15 @@ else:
           # each prime divisor is counted as a prime factor in the list
           inputNumber/=factor
     factor+=1
+  '''
+  owo = initialNumber
+  while math.prod(primeFactors) !=initialNumber:
+    for i in range(2, math.isqrt(owo)+1):
+      if owo%i ==0 and primecheck(i)==True:
+        primeFactors.append(factor)
+        owo /=i
+        
+  
   
   #this section prints the prime factors
   print("The factors are:")
