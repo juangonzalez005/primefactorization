@@ -26,34 +26,17 @@ else:
   primeFactors=[] #primeFactors will hold every prime factor of a number
   
   #this gathers every prime factor
-  ''' UNDER CONSTRUCTION FOR A BETTER ALGORITHM
-  THIS SECTION IS NOW DEPRECATED  
-  
-  while math.prod(primeFactors) != initialNumber:
-  #possibleFactor will keep dividing the initial numbers if the divisor is prime
-  #divide until all factors in primeFactors equal the initialNumber when multiplied
-    if primecheck(factor)==True:
-      while inputNumber%factor==0:
-        if inputNumber%factor==0:
-          primeFactors.append(factor)
-          # each prime divisor is counted as a prime factor in the list
-          inputNumber/=factor
-    factor+=1
-  '''
-  numberBrokenApart = initialNumber
+  numberBrokenApart = initialNumber #this variable will be divided by prime numbers
 
-  while math.prod(primeFactors) !=initialNumber:
-    for possibleFactor in range(2, math.isqrt(numberBrokenApart)+1):
-      #print("possibleFactor: "+str(possibleFactor))
+  while math.prod(primeFactors) !=initialNumber: #until the multiplied prime factors equal the original number,
+    for possibleFactor in range(2, math.isqrt(numberBrokenApart)+1): #find factors from 2 to square root of the number 
       if numberBrokenApart%possibleFactor ==0 and primecheck(possibleFactor)==True:
-        #print("reached true")
-        primeFactors.append(possibleFactor)
-        #print(primeFactors)
-        numberBrokenApart = int(numberBrokenApart/possibleFactor)
-        #print("new numberBrokenApart"+str(numberBrokenApart ))
-        if primecheck(numberBrokenApart):
+        #if its divisible and prime, 
+        primeFactors.append(possibleFactor) #append the number
+        numberBrokenApart = int(numberBrokenApart/possibleFactor) #divide the number
+        if primecheck(numberBrokenApart): #the last prime factor left from dividing the number will be appended
           primeFactors.append(numberBrokenApart)
-        break
+        break #break is used to reset the for loop and and reset square root of the number
         
   
   
