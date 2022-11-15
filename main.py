@@ -27,9 +27,10 @@ else:
   
   #this gathers every prime factor
   ''' UNDER CONSTRUCTION FOR A BETTER ALGORITHM
+  THIS SECTION IS NOW DEPRECATED  
   
   while math.prod(primeFactors) != initialNumber:
-  #i will keep dividing the initial numbers if the divisor is prime
+  #possibleFactor will keep dividing the initial numbers if the divisor is prime
   #divide until all factors in primeFactors equal the initialNumber when multiplied
     if primecheck(factor)==True:
       while inputNumber%factor==0:
@@ -39,12 +40,20 @@ else:
           inputNumber/=factor
     factor+=1
   '''
-  owo = initialNumber
+  numberBrokenApart = initialNumber
+
   while math.prod(primeFactors) !=initialNumber:
-    for i in range(2, math.isqrt(owo)+1):
-      if owo%i ==0 and primecheck(i)==True:
-        primeFactors.append(factor)
-        owo /=i
+    for possibleFactor in range(2, math.isqrt(numberBrokenApart)+1):
+      #print("possibleFactor: "+str(possibleFactor))
+      if numberBrokenApart%possibleFactor ==0 and primecheck(possibleFactor)==True:
+        #print("reached true")
+        primeFactors.append(possibleFactor)
+        #print(primeFactors)
+        numberBrokenApart = int(numberBrokenApart/possibleFactor)
+        #print("new numberBrokenApart"+str(numberBrokenApart ))
+        if primecheck(numberBrokenApart):
+          primeFactors.append(numberBrokenApart)
+        break
         
   
   
