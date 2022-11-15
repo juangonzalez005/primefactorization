@@ -22,23 +22,26 @@ elif initialNumber==1:
 elif initialNumber<0:
   print("This is not a positive number")
 else:
-  #this code runs if a positive, non-zero integer is entered
-  primeFactors=[] #primeFactors will hold every prime factor of a number
+  if primecheck(initialNumber) ==False:
+    #this code runs if a positive, non-zero integer is entered, gets the primefactors into a list
+    primeFactors=[] #primeFactors will hold every prime factor of a number
+    
+    #this gathers every prime factor
+    numberBrokenApart = initialNumber #this variable will be divided by prime numbers
   
-  #this gathers every prime factor
-  numberBrokenApart = initialNumber #this variable will be divided by prime numbers
-
-  while math.prod(primeFactors) !=initialNumber: #until the multiplied prime factors equal the original number,
-    for possibleFactor in range(2, math.isqrt(numberBrokenApart)+1): #find factors from 2 to square root of the number 
-      if numberBrokenApart%possibleFactor ==0 and primecheck(possibleFactor)==True:
-        #if its divisible and prime, 
-        primeFactors.append(possibleFactor) #append the number
-        numberBrokenApart = int(numberBrokenApart/possibleFactor) #divide the number
-        if primecheck(numberBrokenApart): #the last prime factor left from dividing the number will be appended
-          primeFactors.append(numberBrokenApart)
-        break #break is used to reset the for loop and and reset square root of the number
+    while math.prod(primeFactors) !=initialNumber: #until the multiplied prime factors equal the original number,
+      for possibleFactor in range(2, math.isqrt(numberBrokenApart)+1): #find factors from 2 to square root of the number 
+        if numberBrokenApart%possibleFactor ==0 and primecheck(possibleFactor)==True:
+          #if its divisible and prime, 
+          primeFactors.append(possibleFactor) #append the number
+          numberBrokenApart = int(numberBrokenApart/possibleFactor) #divide the number
+          if primecheck(numberBrokenApart): #the last prime factor left from dividing the number will be appended
+            primeFactors.append(numberBrokenApart)
+          break #break is used to reset the for loop and and reset square root of the number
+  else: #if the initial number was prime, just add it to the list
+    primeFactors = []
+    primeFactors.append(initialNumber)
         
-  
   
   #this section prints the prime factors
   print("The factors are:")
