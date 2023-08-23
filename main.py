@@ -25,7 +25,7 @@ else:
   if primecheck(initialNumber) ==False:
     #this code runs if a positive, non-zero integer is entered, gets the primefactors into a list
     primeFactors=[] #primeFactors will hold every prime factor of a number
-    
+    #
     #this gathers every prime factor
     numberBrokenApart = initialNumber #this variable will be divided by prime numbers
   
